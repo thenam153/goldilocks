@@ -44,7 +44,7 @@ helm repo add fairwinds-stable https://charts.fairwinds.com/stable
 Helm v2:
 helm install --name goldilocks --namespace goldilocks fairwinds-stable/goldilocks
 Helm v3:
-helm install goldilocks --namespace goldilocks fairwinds-stable/goldilocks
+helm install goldilocks --namespace goldilocks fairwinds-stable/goldilocks --create-namespace
 ```
 
 ### Method 2 - Manifests
@@ -74,7 +74,7 @@ After that you should start to see VPA objects in that namespace.
 The default installation creates a ClusterIP service for the dashboard. You can access via port forward:
 
 ```
-kubectl -n goldilocks port-forward svc/goldilocks-dashboard 8080:80
+kubectl -n goldilocks port-forward svc/goldilocks-dashboard 8080:8080
 ```
 
 Then open your browser to [http://localhost:8080](http://localhost:8080)
